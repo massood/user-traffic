@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Traffic Stats</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+  </head>
+
+  <body>
+    {% if error %}
+    <p class="error"><strong>Error:</strong></p><p> {{ error }} </p>
+    {% endif %}
+
+    {% if rows %}
+    <table>
+      <tbody>
+        {% for key, value in rows.items() %}
+        <tr {% if key == 'Finished' %} style="color: {{ color }}" {% endif %}>
+          <td>{{ key }}</td><td>{{ value }}</td>
+        </tr>
+        {% else %}
+        No data
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  </body>
+</html>

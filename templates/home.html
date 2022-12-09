@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Traffic Stats</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+  </head>
+
+  <body>
+    {% if error %}
+    <p class="error"><strong>Error:</strong></p><p> {{ error }} </p>
+    {% endif %}
+
+    <form action="#" method="post" id="submit">
+    <ul>
+      <li>
+        <label for="uuid">Enter your user id:</label>
+        <input type="text" name="uuid" placeholder="your user id" />
+        <input type="submit" value="Submit" />
+      </li>
+    </ul>
+    </form>
+  </body>
+  <script>
+    document.getElementById('submit').addEventListener(
+        'submit',
+        function(s) {
+          s.preventDefault();
+          const uuid = this.elements["uuid"].value
+          this.action = `/stat/${uuid}`;
+          this.submit();
+        }
+    );
+  </script>
+</html>
