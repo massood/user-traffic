@@ -11,7 +11,7 @@ git clone https://github.com/massood/user-traffic.git
 cd user-traffic/
 
 virtualenv --python=python3 venv
-. venv/bin/activate
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -20,13 +20,16 @@ pip install -r requirements.txt
 ```bash
 cd user-traffic/
 git pull
+
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## Running
 
 ```bash
 cd user-traffic/
-. venv/bin/activate
+source venv/bin/activate
 
 ./run.sh
 ```
